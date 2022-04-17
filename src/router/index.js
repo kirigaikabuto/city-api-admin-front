@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
     {
-        path: '/',
+        path: '/home',
         name: 'Home',
-        component: Home
+        meta: {layout: "main"},
+        component: () => import("../views/Home")
     },
     {
         path: "/login",
@@ -22,6 +22,36 @@ const routes = [
         meta: {layout: "main"},
         component: () => import("../views/Categories.vue")
     },
+    {
+        path: "/detail-record",
+        name: "detail_record",
+        meta: {layout: "main"},
+        component: () => import("../views/DetailRecord")
+    },
+    {
+        path: "/history",
+        name: "history",
+        meta: {layout: "main"},
+        component: () => import("../views/History")
+    },
+    {
+        path: "/planning",
+        name: "planning",
+        meta: {layout: "main"},
+        component: () => import("../views/Planning")
+    },
+    {
+        path: "/profile",
+        name: "profile",
+        meta: {layout: "main"},
+        component: () => import("../views/Profile")
+    },
+    {
+        path: "/record",
+        name: "record",
+        meta: {layout: "main"},
+        component: () => import("../views/Record")
+    }
 ]
 
 const router = new VueRouter({
