@@ -30,6 +30,7 @@
           <td>{{ item.first_name }}</td>
           <td>{{ item.last_name }}</td>
           <td>{{ item.patronymic }}</td>
+          <td><img src="{{item.photo_url}}" width="50" height="50"></td>
           <td>
             <button class="btn-small btn">
               <i class="material-icons">open_in_new</i>
