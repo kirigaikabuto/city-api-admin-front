@@ -4,9 +4,9 @@
       <h3>Заявки</h3>
     </div>
 
-<!--    <div class="history-chart">-->
-<!--      <canvas></canvas>-->
-<!--    </div>-->
+    <!--    <div class="history-chart">-->
+    <!--      <canvas></canvas>-->
+    <!--    </div>-->
 
     <section>
       <table>
@@ -19,6 +19,7 @@
           <th>Имя</th>
           <th>Фамилия</th>
           <th>Отчество</th>
+          <th>Изображение</th>
         </tr>
         </thead>
 
@@ -26,11 +27,12 @@
         <tr v-for="(item, index) in xdata" :key="item.id">
           <td>{{ index }}</td>
           <td>{{ item.address }}</td>
+          <td>{{ item.app_status }}</td>
           <td>{{ item.app_type }}</td>
           <td>{{ item.first_name }}</td>
           <td>{{ item.last_name }}</td>
           <td>{{ item.patronymic }}</td>
-          <td><img src="{{item.photo_url}}" width="50" height="50"></td>
+          <td><img v-bind:src=item.photo_url width="50" height="50"></td>
           <td>
             <button class="btn-small btn">
               <i class="material-icons">open_in_new</i>
