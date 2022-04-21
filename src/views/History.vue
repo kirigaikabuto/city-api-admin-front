@@ -53,7 +53,7 @@ export default {
     xdata: null,
   }),
   mounted() {
-    axios.get('http://localhost:8080/application/list').then((response) => {
+    axios.get('http://ec2-3-224-35-128.compute-1.amazonaws.com:8080/application/list').then((response) => {
       this.xdata = response.data.applications
       console.log(this.xdata)
     })
