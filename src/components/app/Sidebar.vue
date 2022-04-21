@@ -35,7 +35,7 @@ export default {
         url: "/planning",
       },
       {
-        title: "Новая запись",
+        title: "Заявки",
         url: "/record",
       },
       {

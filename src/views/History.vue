@@ -1,35 +1,35 @@
 <template>
   <div>
     <div class="page-title">
-      <h3>История записей</h3>
+      <h3>Заявки</h3>
     </div>
 
-    <div class="history-chart">
-      <canvas></canvas>
-    </div>
+<!--    <div class="history-chart">-->
+<!--      <canvas></canvas>-->
+<!--    </div>-->
 
     <section>
       <table>
         <thead>
         <tr>
           <th>#</th>
-          <th>Сумма</th>
-          <th>Дата</th>
+          <th>Адресс</th>
+          <th>Статус</th>
           <th>Категория</th>
-          <th>Тип</th>
-          <th>Открыть</th>
+          <th>Имя</th>
+          <th>Фамилия</th>
+          <th>Отчество</th>
         </tr>
         </thead>
 
         <tbody>
-        <tr>
-          <td>1</td>
-          <td>1212</td>
-          <td>12.12.32</td>
-          <td>name</td>
-          <td>
-            <span class="white-text badge red">Расход</span>
-          </td>
+        <tr v-for="(item, index) in xdata" :key="item.id">
+          <td>{{ index }}</td>
+          <td>{{ item.address }}</td>
+          <td>{{ item.app_type }}</td>
+          <td>{{ item.first_name }}</td>
+          <td>{{ item.last_name }}</td>
+          <td>{{ item.patronymic }}</td>
           <td>
             <button class="btn-small btn">
               <i class="material-icons">open_in_new</i>
@@ -44,8 +44,20 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
-  name: "History"
+  name: "History",
+  data: () => ({
+    applications: [],
+    xdata: null,
+  }),
+  mounted() {
+    axios.get('http://localhost:8080/application/list').then((response) => {
+      this.xdata = response.data.applications
+      console.log(this.xdata)
+    })
+  }
 }
 </script>
 
